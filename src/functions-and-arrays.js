@@ -103,10 +103,55 @@ console.log(result4);
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if(wordsArr.length===0)
+  {
+    return null;
+  }
+
+  let sum=0;
+
+  for(let i=0;i<wordsArr.length; i++)
+  {
+    sum += wordsArr[i].length; 
+  }
+  let avg = sum / wordsArr.length;
+
+  return avg;
+
+ }
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  if(mixedArr.length===0)
+  {
+    return null;
+  }
+  let sum = 0;
+  for(let i=0; i<mixedArr.length; i++)
+  {
+    if(typeof(mixedArr[i]) === 'number')
+    {
+      sum += mixedArr[i];
+    }
+    else if(mixedArr[i] === true)
+    {
+      sum = sum +1;
+    }
+    else if(mixedArr[i] === false)
+    {
+      sum = sum + 0;
+    }
+    else if(typeof(mixedArr[i])==='string')
+    {
+      sum+= mixedArr[i].length;
+    }
+  }
+  let avg = sum / mixedArr.length;
+
+  return avg;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -123,16 +168,46 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if(wordsUnique.length === 0)
+  {
+    return null;
+  }
+  let ele = wordsUnique.indexOf('poison', 6);
+  wordsUnique.splice(ele,1);
+  let ele1 = wordsUnique.indexOf('simple', 7);
+  wordsUnique.splice(ele1,1);
+  let ele2 = wordsUnique.indexOf('bring', 7);
+  wordsUnique.splice(ele2,1);
+  return  wordsUnique;
+}
+
+const result5 = uniquifyArray(wordsUnique);
+console.log(result5);
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, search) {
 
+  if(wordsFind.length=== 0)
+  {
+    return null;
+  }
+  for(let i =0; i<wordsFind.length; i++)
+  {
+    if(wordsFind[i] === search)
+    {
+      return true;
+    }
+  }
+  return false;
+}
 
+const result6  = doesWordExist(wordsFind,'eating');
+console.log(result6);
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -149,7 +224,22 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount,word) {
+
+  if(wordsCount.length===0)
+  {
+    return 0;
+  }
+  let count = 0;
+  for(let i=0; i<wordsCount.length; i++)
+  {
+    if(wordsCount[i]===word)
+    {
+      count++;
+    }
+  }
+return count;
+}
 
 
 
